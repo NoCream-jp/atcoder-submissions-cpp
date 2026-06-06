@@ -24,15 +24,40 @@ const int drct[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 // --------------------------------------------------------
 
 // --------------------------------------------------------
-void yesno(bool b) {
+void answer(bool b) {
     cout << (b ? "Yes" : "No") << endl;
 }
 
 int main() {
-  cin.tie(nullptr);
-  ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
 
-  
+    int n, m;
+    cin >> n >> m;
+    vi a(n), b(m);
+    rep(i, n) cin >> a[i];
+    rep(i, m) cin >> b[i];
+    vi c;
+    c.insert(c.end(), all(a));
+    c.insert(c.end(), all(b));
 
-  return 0;
+    sort(all(a));
+    sort(all(b));
+    sort(all(c));
+
+    set<int> st(all(a));
+    bool f = false;
+    rep(i, n + m - 1) {
+        int t1 = c[i];
+        int t2 = c[i+1];
+
+        if (st.count(t1) && st.count(t2)) {
+            f = true;
+            break;
+        }
+    }
+
+    answer(f);
+
+    return 0;
 }

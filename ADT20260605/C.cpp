@@ -6,11 +6,8 @@ using vi = vector<int>;
 using vll = vector<ll>;
 using vvi = vector<vector<int>>;
 using vvll = vector<vector<ll>>;
-using vs = vector<string>;
 using pii = pair<int, int>;
 using pll = pair<ll, ll>;
-using uset = unordered_set<int>;
-using umap = unordered_map<int, int>;
 
 const int MOD = 998244353;
 const ll INF = 1LL << 60;
@@ -24,15 +21,32 @@ const int drct[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 // --------------------------------------------------------
 
 // --------------------------------------------------------
-void yesno(bool b) {
-    cout << (b ? "Yes" : "No") << endl;
-}
 
 int main() {
-  cin.tie(nullptr);
-  ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
 
-  
+    ll n, m;
+    cin >> n >> m;
+    vector<string> grid(n);
 
-  return 0;
+    rep(i, n) cin >> grid[i];
+
+    unordered_map <string, int> map;
+    rep(i, n-m+1) {
+        rep(j, n-m+1) {
+            string temp = "";
+            rep(ii, m) {
+                rep(jj, m) {
+                    temp += grid[i + ii][j + jj];
+                }
+            }
+            map[temp] += 1;
+            // cout << temp << endl;
+        }
+    }
+
+    cout << map.size() << endl;
+
+    return 0;
 }
