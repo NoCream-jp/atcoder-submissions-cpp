@@ -41,7 +41,36 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+  ll n; cin >> n;
+  ll ans = 0;
+
+  for(ll x = 1; x < n; x++) {
+
+    ll y = n-x;
+    ll a = 0, c = 0;
+
+    for(ll i = 1;  i * i <= x; i++) {
+      if(x % i == 0) {
+        a++;
+        if (i * i != x) {
+          a++;
+        }
+      }
+    }
+
+    for(ll i = 1; i * i <= y; i++) {
+      if(y % i == 0) {
+        c++;
+        if (i * i != y) {
+          c++;
+        }
+      }
+    }
+
+    ans += a * c;
+  }
+
+  cout << ans << endl;
 
   return 0;
 }
