@@ -35,13 +35,6 @@ const int drct[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 void yesno(bool b) {
     cout << (b ? "Yes" : "No") << endl;
 }
-
-void printVec(vll& arr) {
-  rep(i, arr.size()) {
-    cout << arr[i] << " ";
-  }
-  cout << endl;
-}
 // --------------------------------------------------------
 
 int main() {

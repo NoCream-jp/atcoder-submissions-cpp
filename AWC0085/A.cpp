@@ -48,7 +48,16 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
+  ll n; cin >> n;
+  vll s(n * 2); // 二分木みたいにそれぞれlogかけてmaxで埋めていく
+  rep(i, n) cin >> s[i];
+
+  printVec(s);
   
+  rep(i, n) {
+    
+  }
+
 
   return 0;
 }
