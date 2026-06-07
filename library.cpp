@@ -32,7 +32,7 @@ vector<int> get_primes(int right) {
 
 // 最大公約数・最小公倍数
 // ※ C++17以降は標準ライブラリ <numeric> に std::gcd(a, b), std::lcm(a, b) があります。
-// 例: ll g = std::gcd(12, 18); // -> 6
+// 例: ll g = gcd(12, 18); // -> 6
 
 // ユークリッド距離
 double get_dist(double x1, double y1, double x2, double y2) {
@@ -158,6 +158,38 @@ vector<pair<T, int>> RLE(const vector<T>& seq) {
 // ======================================================================
 // 3. グラフ・木構造
 // ======================================================================
+
+// BFS
+// int H, W;
+// dist[sy][sx] = 0;
+//     que.push({sy, sx});
+
+//     // 4. BFS（幅優先探索）の実行
+//     while (!que.empty()) {
+//         // キューの先頭要素を取り出し、削除する
+//         auto [y, x] = que.front(); // C++17の構造化束縛を使用
+//         que.pop();
+
+//         // 上下左右の4方向を探索
+//         for (int dir = 0; dir < 4; ++dir) {
+//             int ny = y + dy[dir];
+//             int nx = x + dx[dir];
+
+//             // 探索のスキップ条件
+//             // 条件1: グリッドの範囲外にはみ出している
+//             if (ny < 0 || ny >= H || nx < 0 || nx >= W) continue;
+            
+//             // 条件2: 移動先が壁（'#'）である
+//             if (grid[ny][nx] == '#') continue;
+            
+//             // 条件3: 既に訪問済みである（最短距離が確定している）
+//             if (dist[ny][nx] != -1) continue;
+
+//             // すべての条件をクリアした場合、距離を書き込んでキューに追加
+//             dist[ny][nx] = dist[y][x] + 1;
+//             que.push({ny, nx});
+//         }
+//     }
 
 // ワーシャルフロイド法
 void floyd(vector<vector<ll>>& dist, int N) {

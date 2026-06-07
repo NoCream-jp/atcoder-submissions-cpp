@@ -11,6 +11,8 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 using uset = unordered_set<int>;
 using umap = unordered_map<int, int>;
+using qii = queue<pair<int, int>>;
+
 
 const int MOD = 998244353;
 const ll INF = 1LL << 60;
@@ -32,7 +34,7 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+
 
   return 0;
 }
