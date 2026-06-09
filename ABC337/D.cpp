@@ -36,34 +36,20 @@ void yesno(bool b) {
     cout << (b ? "Yes" : "No") << endl;
 }
 
-void printVec(vll& arr) {
-  rep(i, arr.size()) {
-    cout << arr[i] << " ";
-  }
-  cout << endl;
+template <typename T>
+void printVec(const T& arr) {
+    for (const auto& e : arr) {
+        cout << e << " ";
+    }
+    cout << "\n";
 }
 
-struct PrefixSum2D {
-  int H, W;
-  vector<vector<ll>> S;
-  PrefixSum2D(const vector<vector<ll>>& grid) {
-      H = grid.size();
-      W = (H > 0) ? grid[0].size() : 0;
-      S.assign(H + 1, vector<ll>(W + 1, 0));
-      for (int i = 0; i < H; i++) {
-          for (int j = 0; j < W; j++) {
-              S[i + 1][j + 1] = grid[i][j] + S[i][j + 1] + S[i + 1][j] - S[i][j];
-          }
-      }
-  }
-  // [r1, r2], [c1, c2] の閉区間の和を返す
-  ll query(int r1, int c1, int r2, int c2) {
-      if (r1 > r2 || c1 > c2) return 0;
-      r1 = max(0, r1); c1 = max(0, c1);
-      r2 = min(H - 1, r2); c2 = min(W - 1, c2);
-      return S[r2 + 1][c2 + 1] - S[r1][c2 + 1] - S[r2 + 1][c1] + S[r1][c1];
-  }
-};
+template <typename T>
+void printGrid(const vector<vector<T>>& arr) {
+    for (const auto& e : arr) {
+        printVec(e);
+    }
+}
 // --------------------------------------------------------
 
 int main() {
@@ -71,13 +57,26 @@ int main() {
   ios::sync_with_stdio(false);
 
   ll h, w, k; cin >> h >> w >> k;
-  vs grid(h);
-  rep(i, h) cin >> grid[i];
+  // o,xのみ数えられれば良いので個別に記録しておく
+  // 後で累積和
+  vvll ogrid(h, vll(w, 0));
+  vvll xgrid(h, vll(w, 0));
 
-  PrefixSum2D ps(grid);
+  rep(i, h) {
+    rep(j, w) {
+      char c; cin >> c;
+      if (c == 'o') {
+        ogrid[i][j] = 1;
+      } else if (c == 'x') {
+        xgrid[i][j] = 1;
+      }
+    }
+  }
   
+  printGrid(ogrid); cout << endl;
+  printGrid(xgrid);
   
-  
+
 
   return 0;
 }

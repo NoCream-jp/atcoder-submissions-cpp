@@ -33,14 +33,22 @@ const int drct[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
 // --------------------------------------------------------
 void yesno(bool b) {
-    cout << (b ? "Yes" : "No") << endl;
+  cout << (b ? "Yes" : "No") << endl;
 }
 
-void printVec(vll& arr) {
-  rep(i, arr.size()) {
-    cout << arr[i] << " ";
+template <typename T>
+void printVec(const T& arr) {
+  for (const auto& e : arr) {
+      cout << e << " ";
   }
-  cout << endl;
+  cout << "\n";
+}
+
+template <typename T>
+void printGrid(const vector<vector<T>>& arr) {
+  for (const auto& e : arr) {
+      printVec(e);
+  }
 }
 // --------------------------------------------------------
 
