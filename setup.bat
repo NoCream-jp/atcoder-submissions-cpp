@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 :: ==========================================
 :: CONFIGURATION: Change the contest name here
-set "CONTEST_NAME=ABC337"
+set "CONTEST_NAME=ABC324"
 :: ==========================================
 
 :: Check if main.cpp exists in the current directory
