@@ -10,16 +10,15 @@ Here is my coding space
 using namespace std;
 
 using ll = long long;
-using vi = vector<int>;
+using vi = vector<ll>;
 using vll = vector<ll>;
-using vvi = vector<vector<int>>;
+using vvi = vector<vector<ll>>;
 using vvll = vector<vector<ll>>;
 using vs = vector<string>;
-using pii = pair<int, int>;
+using pii = pair<ll, ll>;
 using pll = pair<ll, ll>;
-using uset = unordered_set<int>;
-using umap = unordered_map<int, int>;
-using qii = queue<pair<int, int>>;
+using uset = unordered_set<ll>;
+using umap = unordered_map<ll, ll>;
 
 
 const int MOD = 998244353;
