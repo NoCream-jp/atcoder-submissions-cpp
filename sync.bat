@@ -51,6 +51,7 @@ for /f "delims=" %%i in ('powershell -NoProfile -Command "Get-Date -Format 'yyyy
 
 echo Adding and committing changes...
 git add .
+git add .
 git commit -m "!TIMESTAMP!" >nul
 
 echo Pushing to remote...
