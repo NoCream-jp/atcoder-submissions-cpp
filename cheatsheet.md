@@ -1,5 +1,154 @@
 # C++ データ構造チートシート（競プロ用・完全版）
 
+# ===== string（文字列操作） =====
+
+string s = "hello";
+string t = "world";
+
+# ■ 基本
+s.size();          // 長さ
+s.length();        // 同じ
+s.empty();         // 空判定
+
+s[i];              // i番目アクセス（char）
+s.at(i);           // 範囲チェックあり
+
+s.front();
+s.back();
+
+
+# ■ 連結・追加
+s += t;
+s = s + t;
+
+s.push_back('a');
+s.pop_back();
+
+
+# ■ 部分文字列
+string sub = s.substr(pos, len);   // posからlen文字
+
+
+# ■ 検索
+s.find("ll");     // 見つかれば位置、なければ string::npos
+s.rfind("l");     // 後ろから検索
+
+if (s.find("abc") != string::npos) {
+    // 含まれる
+}
+
+
+# ■ 置換
+s.replace(pos, len, "abc");   // 部分置換
+
+
+# ■ 挿入・削除
+s.insert(pos, "abc");
+s.erase(pos, len);
+
+
+# ■ 比較
+if (s == t) {}
+if (s < t) {}   // 辞書順比較
+
+
+# ■ ソート
+sort(s.begin(), s.end());   // 文字を並び替え
+
+
+# ■ 反転
+reverse(s.begin(), s.end());
+
+
+# ■ カウント
+count(s.begin(), s.end(), 'a');
+
+
+# ■ 数値変換
+int x = stoi("123");
+long long y = stoll("123456789");
+
+string str = to_string(123);
+
+
+# ■ 1文字ずつ処理
+for (char c : s) {}
+
+for (int i = 0; i < s.size(); i++) {
+    char c = s[i];
+}
+
+
+# ■ 大文字・小文字変換
+#include <cctype>
+
+char c = 'a';
+toupper(c);   // 'A'
+tolower(c);   // 'a'
+
+
+# ■ split（疑似）
+#include <sstream>
+
+vector<string> split(string s) {
+    vector<string> res;
+    stringstream ss(s);
+    string token;
+    while (ss >> token) {
+        res.push_back(token);
+    }
+    return res;
+}
+
+
+# ■ join（疑似）
+string join(vector<string>& v, string sep) {
+    string res;
+    for (int i = 0; i < v.size(); i++) {
+        if (i) res += sep;
+        res += v[i];
+    }
+    return res;
+}
+
+
+# ■ 文字列 → 配列的に扱う
+vector<char> vc(s.begin(), s.end());
+
+
+# ■ 文字列の比較（部分）
+s.compare(pos, len, t);   // 部分比較
+
+
+# ■ eraseの注意
+s.erase(remove(s.begin(), s.end(), 'a'), s.end());  // 'a'削除
+
+
+# ■ next_permutation（順列）
+sort(s.begin(), s.end());
+do {
+    // sを使う
+} while (next_permutation(s.begin(), s.end()));
+
+
+# ■ よくあるパターン
+
+// 先頭削除
+s.erase(s.begin());
+
+// 末尾削除
+s.pop_back();
+
+// 先頭追加（非効率）
+s = 'a' + s;
+
+
+// ■ 注意
+- findは見つからないと string::npos
+- erase/remove イディオム重要
+- 文字列連結は多用すると遅い場合あり
+- s[i] は高速、at()は安全
+
 # ===== vector =====
 vector<int> v;
 

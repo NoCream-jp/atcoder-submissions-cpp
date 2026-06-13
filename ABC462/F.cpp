@@ -10,16 +10,15 @@ Here is my coding space
 using namespace std;
 
 using ll = long long;
-using vi = vector<int>;
+using vi = vector<ll>;
 using vll = vector<ll>;
-using vvi = vector<vector<int>>;
+using vvi = vector<vector<ll>>;
 using vvll = vector<vector<ll>>;
 using vs = vector<string>;
-using pii = pair<int, int>;
+using pii = pair<ll, ll>;
 using pll = pair<ll, ll>;
-using uset = unordered_set<int>;
-using umap = unordered_map<int, int>;
-using qii = queue<pair<int, int>>;
+using uset = unordered_set<ll>;
+using umap = unordered_map<ll, ll>;
 
 
 const int MOD = 998244353;
@@ -52,43 +51,11 @@ void printGrid(const vector<vector<T>>& arr) {
 }
 // --------------------------------------------------------
 
-bool check(ll num, string s) {
-  rep(i, s.size()) {
-    ll temp = num % pow(10, i);
-    if (s.find(temp+'0')){
-      s.erase(s.find(temp+'0'));
-    } else {
-      return false;
-    }
-  }
-  return true;
-}
-
 int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  /*
-  平方数が少ないので、全列挙して
-  各平方数についてSを並べ替えることで作れるかを
-  調べればよい
-
-  平方数は 1 <= n <= 1e7 についてn^2
-  */
-
-  ll n; cin >> n;
-  string s; cin >> s;
-
-  vll lst;
-  ll num = 1;
-  ll limit = pow(10, n/2 + 1);
-  while (num < limit) {
-    ll p = pow(num, 2);
-    lst.push_back(p);
-    num++;
-  }
-
-  cout << check(123, "123") << endl;
+  
 
   return 0;
 }
