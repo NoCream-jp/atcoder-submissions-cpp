@@ -47,8 +47,7 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+  cout << '9' << endl;
 
-  cout << ans[n] << endl;
   return 0;
 }

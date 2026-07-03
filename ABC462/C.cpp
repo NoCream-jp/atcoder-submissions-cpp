@@ -51,11 +51,38 @@ void printGrid(const vector<vector<T>>& arr) {
 }
 // --------------------------------------------------------
 
+/*
+xj < xi かつ yj < yi　なjが存在しないようなiの個数を数える
+xを昇順に見ていって、一番小さいyならセーフ
+
+*/
+
 int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
+  ll n; cin >> n;
+  vvll p(n);
+  rep(i, n) {
+    ll x, y; cin >> x >> y;
+    p[i] = {x, y};
+  }
   
+  // xでソート
+  sort(all(p));
+  
+  ll ans = 0;
+  // y
+  ll mn = INF;
+  rep(i, n) {
+    ll x = p[i][0], y = p[i][1];
+    if (y < mn) {
+      ans++;
+      mn = y;
+    }
+  }
+
+  cout << ans << endl;
 
   return 0;
 }

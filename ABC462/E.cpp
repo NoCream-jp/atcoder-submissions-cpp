@@ -55,7 +55,20 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+  ll t; cin >> t;
+  rep(i, t) {
+    ll a, b, x, y; cin >> a >> b >> x >> y;
+    ll ans = 0;
+    ll naname = 0;
+
+    naname += min(x, y) * min(a, b);
+    ans += naname;
+    ll nokori = max(x, y) - min(x, y);
+    if (nokori % 2) {
+      
+    }
+    cout << ans << endl;
+  }
 
   return 0;
 }

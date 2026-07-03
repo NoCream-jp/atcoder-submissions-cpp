@@ -49,6 +49,5 @@ int main() {
 
   
 
-  cout << ans[n] << endl;
   return 0;
 }

@@ -55,7 +55,24 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+  ll n; cin >> n;
+  vvll ans(n);
+
+  rep(i, n) {
+    ll k; cin >> k;
+    rep(j, k) {
+      ll person; cin >> person;
+      person--;
+      ans[person].push_back(i+1);
+    }
+  }
+
+  rep(i, n) {
+    cout << ans[i].size() << " ";
+    sort(all(ans[i]));
+    ans[i].erase(unique(all(ans[i])), ans[i].end());
+    printVec(ans[i]);
+  }
 
   return 0;
 }

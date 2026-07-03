@@ -55,7 +55,15 @@ int main() {
   cin.tie(nullptr);
   ios::sync_with_stdio(false);
 
-  
+  string s; cin >> s;
+  string a = "";
+  rep(i, s.size()) {
+    if (0 <= s[i]-'0' && s[i]-'0' <= 9) {
+      // cout << s[i] << endl;
+      a += s[i];
+    }
+  }
+  cout << a << endl;
 
   return 0;
 }

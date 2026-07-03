@@ -1,5 +1,7 @@
 # C++ データ構造チートシート（競プロ用・完全版）
 
+ans[i].erase(unique(all(ans[i])), ans[i].end());
+
 # ===== string（文字列操作） =====
 
 string s = "hello";
